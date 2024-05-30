@@ -19,7 +19,7 @@ function Header() {
           <p className="link">Compare</p>
         </Link>
         <Link to="/dashboard">
-          <Button text="dashboard" onclick={()=>console.log('clicked')}/>
+          <Button text="dashboard" onclick={()=>console.log('Dashboard btn clicked')}/>
         </Link>
       </div>
       <div className="mobile-drawer">
