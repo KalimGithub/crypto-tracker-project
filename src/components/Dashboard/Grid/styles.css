@@ -1,0 +1,126 @@
+.grid-container{
+   width: 300px; 
+   height: 300px;
+   background-color: var(--darkgray);
+   border: 2px solid var(--darkgray);
+   border-radius: 1rem;
+}
+.grid-info{
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   margin: 1.5rem;
+}
+.coin-logo{
+   height: 3rem;
+}
+.name-col{
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   gap: 0.35rem;
+   margin-left: 1rem;
+}
+.coin-symbol{
+   text-transform: uppercase;
+   font-size: 1.2rem;
+   font-weight: 600;
+   color: var(--white);
+   margin: 0;
+}
+.coin-name{
+   color: var(--gray);
+   margin: 0;
+}
+.chip-flex{
+   display: flex;
+   justify-content: flex-start;
+   gap: 1.5rem;
+   align-items: center;
+   margin: 1.5rem;
+}
+.price-chip{
+   font-size: 1.2rem;
+   font-weight: 600;
+   background-color: var(--black);
+   border: 1px solid var(--green);
+   color: var(--green);
+   border-radius: 2rem;
+   padding: 0.7rem 1.5rem;
+   width: fit-content;
+   min-width: 4rem;
+   text-align: center;
+}
+.red-chip{
+   border: 1px solid var(--red);
+   color: var(--red);
+}
+.price-chip:hover{
+   background-color: var(--green);
+   color: var(--white);
+   cursor: pointer;
+}
+.red-chip:hover{
+   background-color: var(--red);
+   color: var(--white);
+   cursor: pointer;
+}
+
+.coin-current-price{
+   color: var(--red);
+   font-size: 1.2rem;
+   font-weight: 600;
+   padding: 0.5rem 1.5rem ;
+}
+.coin-volume-market-cap{
+   padding: 0.5rem 1.5rem;
+   font-size: 0.9rem;
+   /* color: var(--gray); */
+}
+
+.chip-icon{
+   border-radius: 50%;
+   border: 2px solid var(--green);
+   border-radius: 50%;
+   color: var(--green);
+   min-width: 2.5rem;
+   margin: auto;
+   text-align: center;
+   font-size: 2.2rem !important;
+}
+
+.red-icon{
+   border-radius: 50%;
+   border: 2px solid var(--red);
+   border-radius: 50%;
+   color: var(--red);
+   font-size: 2.2rem !important;
+   min-width: 2.5rem;
+   margin: auto;
+   text-align: center;
+}
+.chip-icon:hover{
+   background-color: var(--green);
+   color: var(--white);
+   cursor: pointer;
+}
+.red-icon:hover{
+   background-color: var(--red);
+   color: var(--white);
+   cursor: pointer;
+}
+
+
+/* grid container hover styling */
+.grid-container:hover{
+   border-color: var(--green);
+   transform: scale(1.01);
+   cursor: pointer;
+   transition: all 0.3s;
+}
+.grid-container-red:hover{
+   border-color: var(--red);
+   transform: scale(1.01);
+   cursor: pointer;
+   transition: all 0.3s;
+}

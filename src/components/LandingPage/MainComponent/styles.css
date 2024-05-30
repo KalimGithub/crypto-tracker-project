@@ -1,0 +1,174 @@
+.flex-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem 3rem;
+    margin-top: 2rem;
+}
+
+.track-crypto-heading,
+.real-time-heading {
+    font-size: 7rem;
+    margin: 0;
+}
+
+.track-crypto-heading {
+    color: var(--white);
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: var(--white);
+}
+
+.track-crypto-heading:hover {
+    color: var(--black);
+    transition: all 0.3s;
+    -webkit-text-stroke-color: var(--white);
+}
+
+.real-time-heading {
+    color: var(--blue);
+
+}
+
+.btn-flex {
+    display: flex;
+    justify-content: flex-start;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.text-info {
+    color: var(--gray);
+    font-size: 1rem;
+}
+
+.right-component {
+    position: relative;
+    width: 40%;
+    padding: 1rem;
+}
+
+.iphone {
+    width: 55%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 0;
+    right: 3rem;
+    min-width: 350px;
+    display: block;
+    z-index: 100;
+}
+
+.gradient {
+    position: absolute;
+    width: 50%;
+    object-fit: contain;
+    top: 5rem;
+    right: 3rem;
+    min-width: 300px;
+}
+
+
+@media only screen and (max-width: 1200px) {
+
+    .track-crypto-heading,
+    .real-time-heading {
+        font-size: 5rem;
+    }
+
+    .right-component {
+        width: 50%;
+    }
+
+    .gradient {
+        top: 4.5rem;
+        min-width: 250px;
+    }
+
+    .iphone {
+        min-width: 300px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .track-crypto-heading,
+    .real-time-heading {
+        font-size: 4.5rem;
+    }
+
+    .left-component {
+        width: 60%;
+    }
+
+    .btn-flex {
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+    }
+
+    .gradient {
+        top: 4rem;
+        right: 1rem;
+        min-width: 200px;
+    }
+
+    .iphone {
+        min-width: 250px;
+        right: 1rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    .track-crypto-heading,
+    .real-time-heading {
+        font-size: 4rem;
+    }
+
+    .flex-info {
+        flex-direction: column;
+        margin: auto;
+        align-items: center;
+        text-align: center;
+    }
+
+    .right-component {
+        width: 100%;
+        align-items: center;
+        /* margin: auto; */
+        margin-top: 3rem;
+    }
+
+    .gradient {
+        top: 4rem;
+        width: 40%;
+        min-width: 200px;
+        left: 35%;
+    }
+
+    .iphone {
+        min-width: 250px;
+        width: 45%;
+        left: 5%;
+
+    }
+
+    .btn-flex {
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .btn-flex {
+        width: 30%;
+    }
+
+    .btn,
+    .outlined-btn {
+        padding: 0.5rem;
+    }
+}
