@@ -7,7 +7,7 @@ import "./Styles.css";
 import Grid from '../Grid/index.js'
 import List from "../List/index.js";
 export default function TabsComponent({ coins }) {
-  // console.log(coins);
+  console.log(coins);
   const [value, setValue] = useState("grid");
 
   const handleChange = (event, newValue) => {

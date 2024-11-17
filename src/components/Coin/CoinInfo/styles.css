@@ -17,3 +17,11 @@
 .coin-info-desc a:hover {
     color: var(--blue) !important;
 }
+@media screen and (max-width: 800px) {
+    .coin-info-name{
+        font-size: 125%;
+    }
+    .coin-info-desc {
+        font-size: 80%;
+    }
+}

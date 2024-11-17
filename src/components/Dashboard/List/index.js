@@ -11,7 +11,6 @@ function List({ coin, index }) {
   return (
     <Link to={`/coins/${coin.id}`}>
       <>
-      
       <motion.tr
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}

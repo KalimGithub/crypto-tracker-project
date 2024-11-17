@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 // import axios from "axios";
-import { coinObject } from "../functions/convertObject";
+import { convertObject } from "../functions/convertObject";
 import Header from "../components/Common/Header";
 import Loader from "../components/Common/Loader";
 import List from "../components/Dashboard/List";
@@ -10,13 +10,19 @@ import { getCoinData } from "../functions/getCoinData";
 import { getCoinPrices } from "../functions/getCoinPrices";
 import LineChart from "../components/Coin/LineChart";
 import { convertDate } from "../functions/convertDate";
+import SelectDays from "../components/Coin/SelectDays";
+import { settingChartData } from "../functions/settingChartData";
+import PriceType from "../components/Coin/PriceType";
+import Footer from "../components/Common/Footer";
 
 function CoinPage() {
   let { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [coinData, setCoinData] = useState();
   const [days, setdays] = useState(30);
-  const [chartData, setChartData]= useState({})
+  const [chartData, setChartData] = useState({});
+  const [priceType, setPriceType] = useState("prices");
+
   useEffect(() => {
     if (id) {
       getData();
@@ -26,28 +32,40 @@ function CoinPage() {
   async function getData() {
     const data = await getCoinData(id);
     if (data) {
-      coinObject(setCoinData, data);
-      const prices = await getCoinPrices(id, days);
-      if(prices){
-        console.log('prices fetched successfully');
-        setChartData({
-          labels: prices.map((price) => convertDate(price[0])),
-          datasets: [
-            {
-              data: prices.map((price) => price[1]),
-              borderColor: "#3a80e9",
-              backgroundColor: "rgb(40,90,144,0.1)",
-              borderWidth: 1,
-              fill: true,
-              tension: 0.25,
-              pointRadius: 0,
-            },
-          ],
-        });
-        setIsLoading(false)
+      convertObject(setCoinData, data);
+      const prices = await getCoinPrices(id, days, priceType);
+      if (prices) {
+        // console.log("prices fetched successfully");
+        settingChartData(setChartData, prices);
+        setIsLoading(false);
       }
     }
   }
+
+  const handleDaysChange = async (event) => {
+    setIsLoading(true);
+    setdays(event.target.value);
+    const prices = await getCoinPrices(id, event.target.value, priceType);
+    if (prices) {
+      // console.log("prices fetched successfully");
+      settingChartData(setChartData, prices);
+      setIsLoading(false);
+    }
+    setIsLoading(false);
+  };
+
+  const handlePriceValueChange = async (event, newType) => {
+    // setIsLoading(true);
+    setPriceType(newType);
+    // console.log(newType);
+    const prices = await getCoinPrices(id, days, newType);
+    if (prices) {
+      settingChartData(setChartData, prices);
+      setIsLoading(false);
+    }
+    setIsLoading(false);
+  };
+
   return (
     <>
       <Header />
@@ -59,9 +77,15 @@ function CoinPage() {
             <List coin={coinData} />
           </div>
           <div className="gray-wrapper">
-            <LineChart chartData={chartData}/>
+            <SelectDays days={days} handleDaysChange={handleDaysChange} />
+            <PriceType
+              priceType={priceType}
+              handlePriceValueChange={handlePriceValueChange}
+            />
+            <LineChart chartData={chartData} priceType={priceType} />
           </div>
           <CoinInfo name={coinData.name} desc={coinData.desc} />
+          <Footer />
         </>
       )}
     </>
